@@ -1,0 +1,73 @@
+drop database if exists alvaroodiiaz;
+create database alvaroodiiaz;
+use alvaroodiiaz;
+create table ordenadores
+	(
+		id int unsigned not null auto_increment,
+        marca varchar(150) not null,
+        procesador varchar(150) not null,
+        ram int not null,
+        grafica varchar(150) not null,
+        Primary Key (id)
+	);
+insert into ordenadores (marca, procesador, ram, grafica)
+values('Lenovo Ideapad 330s', 'Intel i7 8º Gen', '8',
+'AMD Radeon 535'), ('MacBook Pro', 'Intel i9 9º Gen', '16', 'AMD Radeon Pro 5500M');
+alter table ordenadores add propietario char(150) after id;
+insert into ordenadores (marca, procesador, ram, grafica) 
+values('Lenovo Ideapad 330', 'Intel i5 8º Gen', '8',
+'Sin grafica'), ('MacBook Air', 'Intel i5 7º Gen', '6', 'Sin grafica'),('iMac Pro', 'Intel Xeon W', '32', 'Radeon Pro Vega II'),
+('Xiaomi Mi Notebook Pro', 'Intel i7 8º Gen', '16', 'Nvidia GeForce MX250'), ('Lenovo Legion Y540', 'Intel i7 9º Gen', '16', 'NVIDIA GeForce RTX 2060'),
+('Asus ROG Zephyrus S GX502', 'Intel i7 9º Gen', '16', 'NVIDIA® GeForce RTX 2070');
+UPDATE ordenadores SET propietario='David Rodriguez' WHERE id='1';
+UPDATE ordenadores SET id='3' WHERE marca='Lenovo Ideapad 330';
+UPDATE ordenadores SET id='4' WHERE marca='MacBook Air';
+UPDATE ordenadores SET id='5' WHERE marca='iMac Pro';
+UPDATE ordenadores SET id='6' WHERE marca='Xiaomi Mi Notebook Pro';
+UPDATE ordenadores SET id='7' WHERE marca='Lenovo Legion Y540';
+UPDATE ordenadores SET id='8' WHERE marca='Asus ROG Zephyrus S GX502';
+UPDATE ordenadores SET propietario='Jose Arboledas' WHERE id='2';
+UPDATE ordenadores SET propietario='Jesus Gil' WHERE id='3';
+UPDATE ordenadores SET propietario='Alejandro Agudo' WHERE id='4';
+UPDATE ordenadores SET propietario='Alvaro Diaz' WHERE id='5';
+UPDATE ordenadores SET propietario='Pablo Carrero' WHERE id='6';
+UPDATE ordenadores SET propietario='Javier Alvarez' WHERE id='7';
+UPDATE ordenadores SET propietario='Jesus Zamudio' WHERE id='8';
+
+create table empleados
+	(
+		id int unsigned not null auto_increment,
+        nombre varchar(150) not null,
+        codigo varchar(150) not null,
+        salario int not null,
+        puesto varchar(150) not null,
+        Primary Key (id)
+	);
+insert into empleados (nombre, codigo, salario, puesto) 
+values('David Rodriguez', '2372390481', '1800','Encargado de Recursos Humanos'), 
+('Jose Arboledas', '3941320498', '5000', 'Financiero'),
+('Jesus Gil', '1282749128', '1800', 'Encargado Quimico'),
+('Alejandro Agudo', '9314812943', '1100', 'Recepcionista'),
+('Alvaro Diaz', '8132709483', '10000', 'CEO'),
+('Pablo Carrero', '0928134901', '800', 'Empleado'),
+('Javier Alvarez', '3487318944', '950', 'Empleado'),
+('Jesus Zamudio', '2037402837', '2500', 'Programador Jefe');
+
+create table estudios
+	(
+		id int unsigned not null auto_increment,
+        nombre varchar(150) not null,
+        licenciatura varchar(150) not null,
+        centro varchar(150) not null,
+        otros varchar(150) not null,
+        Primary Key (id)
+	);
+insert into estudios (nombre, licenciatura, centro, otros) 
+values('David Rodriguez', 'Bachillerato', 'IES Los Alcores','Ha echo Selectividad'), 
+('Jose Arboledas', 'Tecnico Superior en Desarrollo de Aplicaciones Multiplataforma', 'Centro Profesinal Vedruna', 'Tiene contactos'),
+('Jesus Gil', 'Quimica', 'Universidad de Sevilla', 'Master en Quimica Analitica'),
+('Alejandro Agudo', 'Los bares de Mairena', 'Universidad de la calle', 'Te busca el cubata mas barato'),
+('Alvaro Diaz', 'Ingeniero Informatico', 'Universidad Europea', 'Tecnico Superior en Desarrollo de Aplicaciones Multiplataforma, Master en AI, Master en Diseño de Videojuegos'),
+('Pablo Carrero', 'Tecnico Superior en Desarrollo de Aplicaciones Multiplataforma', 'Centro Profesinal Vedruna', 'Trabajó en la aeronautica'),
+('Javier Alvarez', 'Ingenieria Quimica', 'Universidad Sevilla', 'Master en Quimica Industrial'),
+('Jesus Zamudio', 'Tecnico Superior en Desarrollo de Aplicaciones Multiplataforma', 'Centro Profesinal Vedruna', 'Master en Seguridad Informatica');
